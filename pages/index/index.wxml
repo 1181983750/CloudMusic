@@ -1,0 +1,128 @@
+<!--pages/index/index.wxml-->
+<view class="bg"></view>
+<view class="indexContent">
+	<input placeholder="搜索音乐" class="search" bindtap="toSearch"></input>
+
+	<view class="swiperContainer">
+	
+
+
+		<!-- 轮播部分 -->
+		<swiper class="swiper" circular='{{circular}}' indicator-dots="{{indicatorDots}}" indicator-active-color="{{icolor}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+			<block wx:for="{{bannersList}}" wx:key="bannerId">
+				<swiper-item>
+					<image src="{{item.pic}}" class="slide-image" mode="aspectFill" />
+				</swiper-item>
+			</block>
+		</swiper>
+
+		<!-- 导航部分 -->
+		<view class="navContainer">
+			<view class="navItem" catchtap="toRecommendSong">
+				<icon class="iconfont icon-tuijian"></icon>
+				<text class="">每日推薦</text>
+			</view>
+			<view class="navItem" catchtap="goToMusicListSquare">
+				<icon class="iconfont icon-gedan"></icon>
+				<text class="">歌單</text>
+			</view>
+			<view class="navItem" catchtap="toLoading">
+				<icon class="iconfont icon-icon-bar-chart-bold"></icon>
+				<text class="">排行榜</text>
+			</view>
+			<view class="navItem" catchtap="toLoading">
+				<icon class="iconfont icon-diantai"></icon>
+				<text class="">電臺</text>
+			</view>
+			<view class="navItem" catchtap="toLoading">
+				<icon class="iconfont icon-zhibobofangshexiangjiguankanmianxing"></icon>
+				<text class="">直播</text>
+			</view>
+		</view>
+
+	</view>
+	<!-- 推荐歌单 -->
+	<view class="recommendContainer">
+		<!-- 引入 定义index.json 中的组件 -->
+		<NavHeader title='推荐歌单' nav='为你精心推荐'></NavHeader>
+
+		<!-- 滚动内容区 -->
+		<!-- 是否允许使用flex布局 enable-flex。允许横向滚动scroll-x="true" -->
+		<scroll-view class="scrollContainer" enable-flex="true" scroll-x="true" bindscroll="scroll">
+			<view catchtap="toMusicList" class="scroll-item" wx:for="{{recommendList}}" wx:key="id" data-index="{{index}}" data-song="{{item}}" >
+				<image class="" src="{{item.picUrl}}" />
+				<text class="" >{{item.name}}</text>
+			</view>
+		</scroll-view>
+	</view>
+
+
+	<!-- 排行榜 -->
+	<view class="topList">
+		<!-- 引入 定义index.json 中的组件 -->
+		<NavHeader title='排行榜' nav='热歌风向标'></NavHeader>
+		<!-- 内容区域 -->
+		<swiper class="topListSwiper" next-margin='55rpx' previous-margin='60rpx' autoplay="{{autoplay}}" interval="{{interval}}">
+			<!-- 飙升榜 -->
+			<swiper-item wx:for='{{topList}}' wx:key='name' >
+				<view class="title">{{item.name}}</view>
+				<view catchtap="toSongDetail" class="musicItem" wx:for='{{item.tracks}}' wx:key='id' wx:for-item='musicItem' wx:key-item='id' data-index="{{index}}" data-song="{{musicItem}}">
+					<image class="" src="{{musicItem.al.picUrl}}" />
+					<text class="count">{{index + 1}}</text>
+					<text class="musicName">{{musicItem.name}}</text>
+				</view>
+
+			</swiper-item>
+
+			<!-- 新歌榜 -->
+			<swiper-item wx:for='{{newList}}' wx:key='name'>
+				<view class="title">{{item.name}}</view>
+				<view class="musicItem" bindtap="toSongDetail" wx:for='{{item.tracks}}' wx:key='id' wx:for-item='musicItem' data-index="{{index}}" data-song="{{musicItem}}">
+					<image class="" src="{{musicItem.al.picUrl}}" />
+					<text class="count">{{index + 1}}</text>
+					<text class="musicName">{{musicItem.name}}</text>
+				</view>
+
+			</swiper-item>
+
+			<!-- 原创排行榜 -->
+			<swiper-item wx:for='{{originalList}}' wx:key='name'>
+				<view class="title">{{item.name}}</view>
+				<view class="musicItem" bindtap="toSongDetail" wx:for='{{item.tracks}}' wx:key='id' wx:for-item='musicItem' data-index="{{index}}" data-song="{{musicItem}}">
+					<image class="" src="{{musicItem.al.picUrl}}" />
+					<text class="count">{{index + 1}}</text>
+					<text class="musicName">{{musicItem.name}}</text>
+				</view>
+			</swiper-item>
+
+			<!-- 热歌榜 -->
+			<swiper-item wx:for='{{hotList}}' wx:key='name'>
+				<view class="title">{{item.name}}</view>
+				<view class="musicItem" bindtap="toSongDetail" wx:for='{{item.tracks}}' wx:key='id' wx:for-item='musicItem' data-index="{{index}}" data-song="{{musicItem}}">
+					<image class="" src="{{musicItem.al.picUrl}}" />
+					<text class="count">{{index + 1}}</text>
+					<text class="musicName">{{musicItem.name}}</text>
+				</view>
+			</swiper-item>
+
+			<!-- 黑胶VIP爱听榜 -->
+			<swiper-item wx:for='{{vipList}}' wx:key='name'>
+				<view class="title">{{item.name}}</view>
+				<view class="musicItem" bindtap="toSongDetail" wx:for='{{item.tracks}}' wx:key='id' wx:for-item='musicItem' data-index="{{index}}" data-song="{{musicItem}}">
+					<image class="" src="{{musicItem.al.picUrl}}" />
+					<text class="count">{{index + 1}}</text>
+					<text class="musicName">{{musicItem.name}}</text>
+				</view>
+			</swiper-item>
+
+
+		</swiper>
+
+	</view>
+
+	<!-- 播放器板块 -->
+
+
+
+</view>
+<bottomControl></bottomControl>

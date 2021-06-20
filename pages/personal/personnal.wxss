@@ -1,0 +1,289 @@
+/* pages/personal/personal.wxss */
+.personalContainer {
+    width: 100%;
+    padding-bottom:250rpx;
+  }
+  
+  .personalContainer .user-section {
+    height: 520rpx;
+    position: relative;
+    padding: 100rpx 30rpx 0;
+  }
+  .user-section .bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    /* opacity: 0.7; */
+    /* filter: blur(1px); */
+  }
+  
+  
+  .user-info-box{
+    height: 180rpx;
+    display:flex;
+    align-items:center;
+    position:relative;
+    z-index: 1;
+  
+  }
+  
+  .user-info-box .portrait{
+    width: 130rpx;
+    height: 130rpx;
+    border:5rpx solid #fff;
+    border-radius: 50%;
+  }
+  .user-info-box .username{
+    font-size: 24;
+    color: #303133;
+    margin-left: 20rpx;
+  }
+  
+  /* 退出登录模块 */
+  .outLogin{
+    width: 150rpx;
+    position: absolute;
+    right: 20rpx;
+    top: 50rpx;
+    z-index: 22;
+    border: rgb(14, 14, 14) 1px solid;
+    border-radius: 10rpx;
+    text-align: center;
+  }
+ 
+  
+  
+ 
+  
+  .cover-container{
+    margin-top: -150rpx;
+    padding: 0 30rpx;
+    position:relative;
+    background: #f5f5f5;
+    padding-bottom: 20rpx;
+  }
+  
+  .cover-container .arc{
+    position:absolute;
+    left: 0;
+    top: -34rpx;
+    width: 100%;
+    height: 36rpx;
+  }
+  
+  
+  /* 导航部分 */
+  .cover-container .nav-section {
+    display: flex;
+    background: #fff;
+    padding: 20rpx 0;
+    border-radius: 15rpx;
+  }
+  
+  
+  .nav-section .nav-item {
+    width: 25%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .nav-section .nav-item .iconfont {
+    font-size: 50rpx;
+    color: #d43c33;
+    line-height: 70rpx;
+  }
+  
+  .nav-section .nav-item text:last-child {
+    font-size: 22rpx;
+  
+  }
+  
+  
+  /* 个人中心列表 */
+  .personalContent {
+    background: #fff;
+    margin-top: 20rpx;
+  }
+  
+  /* 最近播放 */
+  .personalContent .scrollView {
+    display: flex;
+    height: 160rpx;
+  }
+  .personalContent .recentPlay {
+    display: flex;
+  }
+  
+  .recentPlayContainer .title {
+    padding-left: 20rpx;
+    font-size: 26rpx;
+    color: #333;
+    line-height: 80rpx;
+  }
+  
+  .personalContent .recentPlay image {
+    width: 160rpx;
+    height: 160rpx;
+    margin-left: 20rpx;
+    border-radius: 20rpx;
+  }
+  
+  /* 最近播放滑块内容 */
+  /* 滑块内容 */
+
+.scrollContainer {
+  display: flex;
+  width: 100%;
+  height: 250rpx;
+  margin-top: 40rpx;
+}
+
+
+
+.recentItem image {
+  height: 200rpx;
+  width: 200rpx;
+  border-radius: 20rpx;
+
+}
+
+.recentItem text {
+  text-align: center;
+  font-size: 26rpx;
+  /* 单行文本溢出文本隐藏并省略号代替 块级元素生效*/
+  /* display: block;
+  overflow: hidden;
+  text-overflow: ellipsis; */
+  /* 强制文本不换行 */
+  /* white-space: nowrap; */
+  /* 多行文本溢出方法 */
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /* 对齐模式 */
+  -webkit-box-orient: vertical;
+  /* 行数 */
+  -webkit-line-clamp: 2;
+}
+
+  .cardList {
+    margin-top: 20rpx;
+  
+  }
+  .cardList .card-item{
+    border-top: 1rpx solid #eee;
+    height: 80rpx;
+    line-height: 80rpx;
+    padding: 10rpx;
+    font-size: 26rpx;
+    color: #333;
+  }
+  .cardList .card-item .more {
+    float: right;
+  }
+  
+  /* 个人中心列表 */
+  .personalContent {
+    margin-top: 40rpx;
+    background: #fff;
+    padding: 20rpx;
+    border-radius: 25rpx;
+  }
+  
+  /* 最近播放 */
+  .personalContent .scrollView {
+    display: flex;
+    height: 160rpx;
+  }
+  .personalContent .recentPlay {
+    display: flex;
+  }
+
+  .recentPlayContainer {
+    overflow: hidden;
+  }
+  
+  .recentPlayContainer .title {
+    padding-left: 20rpx;
+    font-size: 26rpx;
+    color: #aaa;
+    line-height: 60rpx;
+  }
+  
+  .personalContent .recentPlay image {
+    width: 160rpx;
+    height: 160rpx;
+    margin-left: 20rpx;
+    border-radius: 20rpx;
+  }
+  .tip {
+    font-size: 26rpx;
+    color: #aaa;
+    width: 100%;
+    height: 100rpx;
+    line-height: 100rpx;
+    text-align: center;
+  }
+  
+  /* 最近播放记录的样式 */
+
+
+  .recentItem {
+    margin-right: 20rpx;
+    text-align: center;
+    font-size: 24rpx;
+  }
+
+  .recentItem image{
+    height: 180rpx;
+    width: 180rpx;
+    border-radius: 20rpx;
+  }
+
+  .listItem {
+    margin: 10rpx;
+    width: 100%;
+    display: flex;
+  }
+
+  .listItem .listCover {
+    height: 110rpx;
+    width: 110rpx;
+    border-radius: 20rpx;
+  }
+
+  .listItem .listInfo{
+    margin-left: 20rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .listItem text {
+    margin: 4rpx;
+  }
+
+  .listItem .listName {
+    font-size: 26rpx;
+    font-weight: 500;
+    color: #424242;
+  }
+
+  .listItem .listMusicNum {
+    font-size: 20rpx;
+    color: #aaa;
+  }
+
+  .personalContent>.title {
+    font-size: 24rpx;
+    color: #aaa;
+    margin: 20rpx;
+  }
+
+  .created .listItem {
+    margin: 25rpx 20rpx;
+  }

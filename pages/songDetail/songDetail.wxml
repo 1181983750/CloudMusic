@@ -1,0 +1,52 @@
+<!--pages/songDetail/songDetail.wxml-->
+<image class="bg" src="{{song.al.picUrl}}" />
+
+<view class="songDetailContainer">
+	<view class="musicAuthor">{{song.ar[0].name}}</view>
+	<block wx:if="{{!isLyric}}">
+		<view class="circle"></view>
+
+		<!-- 摇杆 -->
+		<image class="needle {{isPlay && 'needleRotate'}}" src="/static/images/song/needle.png"></image>
+		<!-- 磁盘 -->
+		<view bindtap="handleLyric" class="discContainer discAnimation {{isPlay? 'discPlay' : 'discPaused'}}">
+			<image class="disc" src="/static/images/song/disc.png"></image>
+			<!-- 歌曲封面图 -->
+			<image class="musicImg" src="{{song.al.picUrl}}"></image>
+		</view>
+	</block>
+
+
+	<!-- 歌词 -->
+	<view wx:if="{{isLyric}}" bindtap="handleLyric" class="scrollLrc">
+		<text>{{currentLyric}}</text>
+	</view>
+
+
+	<!-- 点赞热门评论区 -->
+	<view class="menuControl">
+		<text catchtap="isLike" class="iconfont {{isLike?'icon-woxihuan1':'icon-woxihuan'}}"></text>
+		<text class="iconfont icon-xiaoxi1" bindtap="handleMusicPlay"></text>
+		<text class="iconfont icon-fenxiang"></text>
+	</view>
+
+	<!-- 进度条控制 -->
+	<view class="progressControl">
+		<text>{{currentTime}}</text>
+		<!-- 总进度条 -->
+		<slider class="audioCurrentTimeBar" bindchange="handleSliderChange" value="{{currentWidth}}" block-size="12" activeColor="#da3f34" background-color="#dadada" />
+		<text>{{durationTime}}</text>
+	</view>
+
+
+
+	<!-- 歌曲播放控制 -->
+	<view class="musicControl">
+		<text class="iconfont icon-liebiaoxunhuan"></text>
+		<text class="iconfont icon-shangyishou1" id="back" bindtap="handleSwitch"></text>
+		<text class="iconfont {{isPlay ? 'icon-zanting' : 'icon-bofang2'}} big" bindtap="handleMusicPlay"></text>
+		<text class="iconfont icon-shangyishou" id="next" bindtap="handleSwitch"></text>
+		<text class="iconfont icon-gedan"></text>
+	</view>
+
+</view>

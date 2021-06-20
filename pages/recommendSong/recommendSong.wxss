@@ -1,0 +1,154 @@
+/* pages/recommendSong/recommendSong.wxss */
+.recommendSongContainer{
+    width: 100%;
+}
+.recommendSongContainer .header{
+    width: 100%;
+    height: 400rpx;
+}
+.recommendSongContainer .header image{
+    width: 100%;
+    height: 400rpx;
+    filter:blur(10px); 
+}
+.date{
+    position: absolute;
+    left: 5%;
+    top: 15%;
+    color: #ffffff;
+}
+.date .day{
+    font-size: 80rpx;
+}
+.date .now{
+    font-size: 30rpx;
+}
+.header .ago{
+    position:absolute;
+    top:20%;
+    right: 5%;
+    color: #ffffff;
+    display: flex;
+}
+.header .ago .bg{
+    position: absolute;
+    width: 235rpx;
+    height: 50rpx;
+    background-color: rgb(238, 238, 230);
+    border-radius: 20px;
+    opacity: .5;
+}
+.header .ago text{
+    position: relative;
+    font-size: 30rpx;
+    line-height: 50rpx;
+}
+/* END 头部结束 */
+
+/* 列表区域 */
+.listContainer{
+    position: relative;
+    border-radius: 30rpx;
+    backdrop-filter: blur(20px);
+    background-color: rgba(228, 228, 228, 0.459);
+    padding: 20rpx;  
+}
+.listHeader{
+    height: 80rpx;
+    line-height:80rpx;
+    display: flex;
+    justify-content: space-between;
+}
+/* 播放全部 */
+.listHeader .icon-bofang1{
+    color: #ff0000;
+}
+.listHeader .icon-bofang1::after{
+    position: relative;
+    content: '播放全部';
+    color: #000000;
+    margin-left: 12rpx;
+    font-size: 30rpx;
+    font-weight: 700;
+}
+.Length{
+    position: absolute;
+    left: 200rpx;
+    font-size: 20rpx;
+    color: grey;
+}
+.changeMore{
+    position: relative;
+    margin-right: 20rpx;
+    font-size: 30rpx;
+}
+
+/* 滚动滑块区域 */
+.listScroll{
+    background-color: rgba(228, 228, 228, 0.459);
+    height: calc(100vh - 520rpx);
+    padding-left: 15rpx;
+}
+
+.listScroll .scrollItem {
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+}
+.listScroll .scrollItem image{
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 10rpx;
+    /* background-size: cover; */
+}
+.listScroll .title{
+    background-color: rgba(199, 106, 106, 0.459);
+    font-size: 20rpx;
+    color:#dd2424
+}
+
+.musicInfo{
+    display: flex;
+    flex-direction: column;
+    margin-left: 25rpx;
+}
+.musicInfo .author{
+    font-size: 20rpx;
+}
+.musicInfo text{
+    height: 40rpx;
+    line-height: 40rpx;
+    font-size: 30rpx;
+    max-width: 410rpx;
+    /* word-spacing: nowrap; */
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.musicInfo .icon-icon-bar-chart-bold{
+    line-height: 80rpx;
+    height: 100rpx;
+    right: 20%;
+    color: #ff0000;
+}
+.scrollItem{
+    position: relative;
+    display: flex;
+    margin-bottom: 30rpx;
+}
+.scrollItem .iconfont{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    width: 80rpx;
+    height: 100rpx;
+}
+.scrollItem .icon-mv{
+    right: 10%;
+    align-items: center;
+}
+.scrollItem .icon-gengduo{
+    right: 0;
+    align-items: center;
+    background-color: transparent !important;
+    border-color:transparent !important;
+}

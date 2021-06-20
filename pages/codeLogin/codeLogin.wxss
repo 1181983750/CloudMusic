@@ -1,0 +1,6 @@
+/* pages/codeLogin/codeLogin.wxss */
+.codeContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

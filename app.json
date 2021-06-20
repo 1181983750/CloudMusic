@@ -1,0 +1,53 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/musicList/musicList",
+    "pages/recommendSong/recommendSong",
+    "pages/songDetail/songDetail",
+    "pages/search/search",
+    "pages/personal/personnal",
+    "pages/video/video",
+    "pages/logs/logs",
+    "pages/codeLogin/codeLogin",
+    "pages/login/login",
+    "pages/toLoading/toLoading",
+    "pages/songMV/songMV"
+  ],
+  "requiredBackgroundModes": [
+    "audio"
+  ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "sitemapLocation": "sitemap.json",
+  "window": {
+    "navigationBarTextStyle": "white",
+    "navigationBarBackgroundColor": "#D80000",
+    "navigationBarTitleText": "第一组音乐播放器"
+  },
+  "tabBar": {
+    "selectedColor": "#D80000",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "/static/images/tabs/首页.png",
+        "selectedIconPath": "/static/images/tabs/首页选中.png"
+      },
+      {
+        "pagePath": "pages/video/video",
+        "text": "视频",
+        "iconPath": "/static/images/tabs/推荐.png",
+        "selectedIconPath": "/static/images/tabs/推荐选中.png"
+      },
+      {
+        "pagePath": "pages/personal/personnal",
+        "text": "个人中心",
+        "iconPath": "/static/images/tabs/我.png",
+        "selectedIconPath": "/static/images/tabs/我选中.png"
+      }
+    ]
+  }
+}

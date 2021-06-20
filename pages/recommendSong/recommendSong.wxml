@@ -1,0 +1,41 @@
+<view class="recommendSongContainer">
+	<!-- 头部 -->
+	<view class="header">
+		<image src="/static/images/recommendSong/每日推荐1.jpg" alt="" />
+		<view class="date">
+			<text class="day">{{day}}</text>
+			<text class="">/</text>
+			<text class="month">{{month}}</text>
+			<text class="now">
+            今日适合听歌></text>
+		</view>
+		<view class="ago">
+			<view class="bg"></view>
+			<text decode>&nbsp;历史日推👑VIP</text>
+		</view>
+	</view>
+	<!-- 列表区域 -->
+	<view class="listContainer">
+		<view class="listHeader">
+			<view class="iconfont icon-bofang1" catchtap="play"></view><text class="Length">({{recommendListLength}})</text>
+			<view class="changeMore iconfont icon-duoxuan"></view>
+		</view>
+	</view>
+
+	<!-- 内容区 -->
+	<scroll-view scroll-y class="listScroll">
+		<view class="scrollItem" wx:for="{{recommendList}}" wx:key="id" data-index="{{index}}" data-song="{{item}}" bindtap="toSongDetail">
+			<image src="{{item.al.picUrl}}"></image>
+			<view class="musicInfo">
+				<text class="musicName">{{item.name}}<text wx:if="{{item.id == id}}" class="title">{{reason.reason}}</text></text>
+				<text class="author">{{item.ar[0].name}}-{{item.al.name}}</text>
+				<text wx:if="{{item.id == SelcetId}}" class="iconfont icon-icon-bar-chart-bold"></text>
+			</view>
+			<text catchtap="toMv" wx:if="{{item.mv != 0}}" class="iconfont icon-mv icon-mv"></text>
+			<button catchtap="toMore"  open-type="share" class="iconfont icon-gengduo"></button>
+		</view>
+			
+	</scroll-view>
+
+</view>
+<bottomControl></bottomControl>

@@ -1,0 +1,52 @@
+<view class="videoContainer">
+	<!-- 导航列表区域 -->
+	<scroll-view scroll-x='true' class="navScroll" enable-flex='true' scroll-into-view="{{'scroll' + navId}}" scroll-with-animation>
+		<view id="{{'scroll' + item.id}}" class="navItem" wx:for="{{videoGroupList}}" wx:key="id">
+			<!-- 三元表达式判断列表id是否为true 是的话切换active下边框样式 不是为空 -->
+			<view class="navContent {{navId === item.id?'active': ''}}" bindtap="changeNav" id="{{item.id}}" data-id="{{item.id}}">
+				{{item.name}}
+			</view>
+		</view>
+	</scroll-view>
+
+	<!-- 头部区域 -->
+	<view class="header">
+		<!-- <image src="/static/images/personal/miss-face.png"></image> -->
+		<input placeholder="搜索音乐" class="search" bindtap="toSearch"></input>
+		<!-- <view class="iconfont icon-icon-test"></view> -->
+	</view>
+
+	
+	<!-- 视频列表区域 -->
+	<scroll-view scroll-y class="videoScroll" refresher-enabled bindrefresherrefresh="handleRefresher" refresher-triggered="{{isTriggered}}" bindscrolltolower="handleToLower" bindscrolltolower="handleToLower">
+		<view class="videoItem" wx:for="{{videoList}}" wx:key="id">
+			<video wx:if='{{videoId === item.data.vid}}' src="{{videoUrlList}}" bindplay="handlePlay" id="{{item.data.vid}}" poster="{{item.data.coverUrl}}" class="common" object-fit="cover" bindtimeupdate="handleTimeUpdate" bindended="handleEnded"></video>
+
+			<!-- 性能优化：使用image图片代替video标签 -->
+			<image wx:else bindtap="handlePlay" id="{{item.data.vid}}" class="common" src="{{item.data.coverUrl}}" show-mute-btn></image>
+
+
+			<view class="content">{{item.data.title}}</view>
+
+			<view class="footer">
+				<image class="avatar" src="{{item.data.creator.avatarUrl}}"></image>
+				<text class="nickName">{{item.data.creator.nickname}}</text>
+				<view class="comments_praised">
+					<text class="item">
+            <text class="iconfont icon-shoucang"></text>
+					<text class="count">{{item.data.praisedCount}}</text>
+					</text>
+					<text class="item">
+            <text class="iconfont icon-pinglun2"></text>
+					<text class="count">{{item.data.commentCount}}</text>
+					</text>
+					<!-- 转发 微信开发能力-->
+					<button open-type="share" class="item btn">
+						<text class="iconfont icon-gengduo"></text>
+					</button>
+				</view>
+			</view>
+		</view>
+	</scroll-view>
+</view>
+<bottomControl></bottomControl>

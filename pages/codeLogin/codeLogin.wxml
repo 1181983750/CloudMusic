@@ -1,0 +1,4 @@
+<!--pages/codeLogin/codeLogin.wxml-->
+<view class="codeContainer">
+	<text>使用网易云app扫码登录</text>
+</view>
